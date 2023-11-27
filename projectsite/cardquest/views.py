@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from django.views.generic.list import ListView
-from cardquest.models import PokemonCard
+from cardquest.models import PokemonCard, Trainer
 
 
 class HomePageView(ListView):
@@ -12,3 +12,10 @@ class HomePageView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+
+class TrainerList(ListView):
+    model = Trainer
+    context_object_name = 'trainer'
+    template_name = 'trainers.html'
+    paginate_by = 3

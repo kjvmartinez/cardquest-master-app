@@ -45,3 +45,9 @@ class TrainerUpdateView(UpdateView):
     form_class = TrainerForm
     template_name = 'trainer_edit.html'
     success_url = reverse_lazy('trainer-list')
+
+
+class TrainerDeleteView(DeleteView):
+    model = Trainer
+    template_name = 'trainer_del.html'
+    success_url = reverse_lazy('trainer-list')

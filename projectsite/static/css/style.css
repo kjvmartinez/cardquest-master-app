@@ -62,7 +62,6 @@
     color: white;
     bottom: 0;
     text-align: center;
-
   }
   
   /*-----------------------------HOME_PAGE---------------------------------------*/
@@ -116,7 +115,7 @@
   
   /*-----------------------------COLLECTION_PAGE---------------------------------*/
   .collection-container {
-    min-height: 100vh;
+    min-height: auto;
     border-collapse: collapse;
     margin: 1%;
     display: flex;
@@ -189,9 +188,10 @@
   /*-----------------------------POKEMON_CARD_PAGE-------------------------------*/
   /*CARDS*/
   .cards-container {
-    min-height: 100vh;
+    min-height: auto;
     margin: 1%;
     text-align: center;
+    font-size: 12px;
   }
   
   .card-box {
@@ -484,6 +484,7 @@
     background: radial-gradient(circle, transparent, #cd1179);
   }
   
+  /* Pagination */
   .pagination {
     display: flex;
     justify-content: center;

@@ -71,3 +71,6 @@ class Collection(BaseModel):
     trainer = models.ForeignKey(
         Trainer, blank=True, null=True, on_delete=models.CASCADE)
     collection_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.card} {self.collection_date}"

@@ -14,7 +14,8 @@ class PokemonAdmin(admin.ModelAdmin):
 
 @admin.register(Trainer)
 class TrainerAdmin(admin.ModelAdmin):
-    list_display = ("name", "location", "email", "birthdate")
+    list_display = ("name", "location", "email",
+                    "birthdate", "created_at", "updated_at")
     search_fields = ("name",)
 
 

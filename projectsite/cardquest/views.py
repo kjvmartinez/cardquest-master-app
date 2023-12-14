@@ -6,6 +6,7 @@ from cardquest.models import PokemonCard, Trainer, Collection
 from cardquest.forms import TrainerForm, CollectionForm
 
 from django.urls import reverse_lazy
+import json
 
 
 class HomePageView(ListView):
@@ -16,6 +17,25 @@ class HomePageView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+
+
+class PokemonCardListView(ListView):
+    model = PokemonCard
+    context_object_name = 'pokemoncard'
+    template_name = "pokemoncards.html"
+    # Update this with the correct path to your JSON file
+    json_file_path = 'data/pokemon_data.json'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        pokemon_data = self.get_pokemon_data()
+        context['pokemon_data'] = pokemon_data
+        return context
+
+    def get_pokemon_data(self):
+        with open(self.json_file_path, 'r') as file:
+            data = json.load(file)
+            return data.get('pokemons', [])
 
 
 class TrainerList(ListView):
